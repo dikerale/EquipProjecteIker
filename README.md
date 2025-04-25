@@ -1,0 +1,2 @@
+# EquipProjecteIker
+Projecte entorns
