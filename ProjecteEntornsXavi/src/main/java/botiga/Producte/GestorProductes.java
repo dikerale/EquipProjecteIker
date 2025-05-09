@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class GestorProductes {
     Scanner sc = new Scanner(System.in);
+    //LLISTA DE PRODUCTES
     public static ArrayList<Producte> llistaProductes = new ArrayList<>();
 
 
@@ -24,6 +25,7 @@ public class GestorProductes {
         llistaProductes.add(p);
     }
 
+    //BUSCAR UN PRODUCTE A LA LLISTA
     public void cercarProducte(String nom){
         Boolean ProducteCercat = Boolean.FALSE;
         for (Producte p : llistaProductes) {
@@ -34,6 +36,7 @@ public class GestorProductes {
         }
     }
 
+    //ELIMINAR UN PRODUCTE
     public void eliminarProdute(Producte producte){
         for (Producte p : llistaProductes) {
             if (p.getNom().equals(producte.getNom())) {
@@ -54,8 +57,10 @@ public class GestorProductes {
 
     }
 
+    //APLICAR UN DESCOMPTE
     public void aplicarDescomptes(Producte producte, double descompte){
         producte.setPreu(producte.getPreu()-descompte);
+        System.out.println("Descompte aplicat");
     }
 
 }
