@@ -6,6 +6,8 @@ public class GestorProductes {
     Scanner sc = new Scanner(System.in);
     public static ArrayList<Producte> llistaProductes = new ArrayList<>();
 
+
+    //CREACIÓ D'UN PRODUCTE NOU
     public void afegirProducte(Producte producte){
         System.out.println("Introdueix el nom del producte: ");
         String nom = sc.nextLine();
@@ -23,9 +25,11 @@ public class GestorProductes {
     }
 
     public void cercarProducte(String nom){
+        Boolean ProducteCercat = Boolean.FALSE;
         for (Producte p : llistaProductes) {
             if (p.getNom().equals(nom)) {
                 System.out.println(p);
+                ProducteCercat = Boolean.TRUE;
             }
         }
     }
