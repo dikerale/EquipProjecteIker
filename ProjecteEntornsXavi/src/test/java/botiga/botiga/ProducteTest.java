@@ -1,4 +1,4 @@
-package botiga;
+package botiga.botiga;
 
 import botiga.Producte.Producte;
 import org.junit.jupiter.api.Test;
