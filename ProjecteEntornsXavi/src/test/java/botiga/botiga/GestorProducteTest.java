@@ -12,23 +12,23 @@ public class GestorProducteTest {
 
 
     //CREACIÓ D'UN PRODUCTE NOU
-    public void afegirProducte(Producte producte){
+    public void afegirProducte(Producte producte) {
         System.out.println("Introdueix el nom del producte: ");
         String nom = sc.nextLine();
 
         System.out.println("Introdueix el preu del producte: ");
         double preu = sc.nextDouble();
 
-        System.out.println("Introdueix l'stock del producte: ");
+        System.out.println("Introdueix l'estoc del producte: ");
         sc.nextInt();
         int stock = sc.nextInt();
         Producte p = new Producte(nom,preu,stock);
 
-        System.out.println("Producte creat correctament");
+        System.out.println("Producte creat correctament.");
         llistaProductes.add(p);
     }
 
-    public void cercarProducte(String nom){
+    public void cercarProducte(String nom) {
         Boolean ProducteCercat = Boolean.FALSE;
         for (Producte p : llistaProductes) {
             if (p.getNom().equals(nom)) {
@@ -38,28 +38,24 @@ public class GestorProducteTest {
         }
     }
 
-    public void eliminarProdute(Producte producte){
+    public void eliminarProdute(Producte producte) {
         for (Producte p : llistaProductes) {
             if (p.getNom().equals(producte.getNom())) {
-                System.out.println("Vols eliminar aquest producte?(1-si,2-no)");
+                System.out.println("Vols eliminar aquest producte? 1. Sí - 2. No");
                 System.out.println(p);
                 int confirmacio = sc.nextInt();
-                if (confirmacio == 1){
+                if (confirmacio == 1) {
                     llistaProductes.remove(p);
-                    System.out.println("Producte eliminat");
-                } else  if (confirmacio == 2){
-                    System.out.println("Producte NO eliminat");
+                    System.out.println("S'ha eliminat el producte.");
+                } else  if (confirmacio == 2) {
+                    System.out.println("No s'ha eliminat el producte.");
                 } else {
-                    System.out.println("No has introduit un nombre vàlid");
+                    System.out.println("ERROR - No s'ha introduit un nombre vàlid");
                 }
-
             }
         }
-
     }
-
-    public void aplicarDescomptes(Producte producte, double descompte){
+    public void aplicarDescomptes(Producte producte, double descompte) {
         producte.setPreu(producte.getPreu()-descompte);
     }
-
 }
