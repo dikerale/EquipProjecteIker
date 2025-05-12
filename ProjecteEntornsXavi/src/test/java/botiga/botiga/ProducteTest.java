@@ -1,42 +1,35 @@
 package botiga;
 
+import botiga.Producte.Producte;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
+
 public class ProducteTest {
-    private String nom;
-    private double preu;
-    private int stock;
 
-    public Producte(String nom, double preu, int stock) {
-        this.nom = nom;
-        this.preu = preu;
-        this.stock = stock;
+    @Test
+    public void testConstructor() {
+        Producte p = new Producte("Llapis", 1.5, 100);
+        assertEquals("Llapis", p.getNom());
+        assertEquals(1.5, p.getPreu());
+        assertEquals(100, p.getStock());
     }
 
-    public String getNom() {
-        return nom;
+    @Test
+    public void testSettersAndGetters() {
+        Producte p = new Producte("Llapis", 1.5, 100);
+        p.setNom("Bolígraf");
+        p.setPreu(2.0);
+        p.setStock(50);
+
+        assertEquals("Bolígraf", p.getNom());
+        assertEquals(2.0, p.getPreu());
+        assertEquals(50, p.getStock());
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
-    public double getPreu() {
-        return preu;
-    }
-
-    public void setPreu(double preu) {
-        this.preu = preu;
-    }
-
-    public int getStock() {
-        return stock;
-    }
-
-    public void setStock(int stock) {
-        this.stock = stock;
-    }
-
-    public String toString(){
-        return "Nom: "+ nom +"\n"+ "Preu: " + preu+"\n" + "Stock: " + stock;
-
+    @Test
+    public void testToString() {
+        Producte p = new Producte("Llapis", 1.5, 100);
+        String expected = "Nom: Llapis\nPreu: 1.5\nStock: 100";
+        assertEquals(expected, p.toString());
     }
 }
