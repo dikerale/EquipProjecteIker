@@ -2,9 +2,9 @@ package botiga;
 import botiga.Producte.Producte;
 import java.util.ArrayList;
 import java.util.Scanner;
-import org.junit.jupier.api.BeforeEach;
-import org.junit.jupier.api.Test;
-import org.junit.jupier.api.Assertions.*;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class GestorProducteTest {
     Scanner sc = new Scanner(System.in);
