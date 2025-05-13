@@ -3,45 +3,33 @@ package botiga.botiga;
 import botiga.Producte.GestorProductes;
 import botiga.Producte.Producte;
 import org.junit.jupiter.api.Test;
-
-import java.util.Scanner;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 
 public class GestorProducteTest {
-    Scanner sc = new Scanner(System.in);
 
     @Test
     public void AfegirProducteTest(){
-
-        System.out.println("Introdueix el nom del producte: ");
-        String nom = sc.nextLine();
-
-        System.out.println("Introdueix el preu del producte: ");
-        double preu = sc.nextDouble();
-
-        System.out.println("Introdueix l'estoc del producte: ");
-        sc.nextInt();
-        int stock = sc.nextInt();
-
         GestorProductes gestorProductes = new GestorProductes();
-        gestorProductes.afegirProducte(nom,preu,stock);
+        gestorProductes.afegirProducte();
     }
 
     @Test
     public void CercarProducteTest(){
-
+        GestorProductes gestorProductes = new GestorProductes();
+        gestorProductes.cercarProducte();
     }
 
     @Test
     public void EliminarProducteTest(){
-
+        GestorProductes gestorProductes = new GestorProductes();
+        gestorProductes.eliminarProdute();
     }
 
     @Test
     public void AplicarProducteTest(){
-
+        GestorProductes gestorProductes = new GestorProductes();
+        gestorProductes.afegirProducte();
     }
 
 
