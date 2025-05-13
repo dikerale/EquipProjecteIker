@@ -6,8 +6,8 @@ import java.util.ArrayList;
 public class GestorVenda {
     ArrayList<Venda> vendas;
 
-    public GestorVenda(ArrayList<Venda> vendas) {
-        this.vendas = vendas;
+    public GestorVenda() {
+        this.vendas = new ArrayList<>();
     }
     public void afegirVenda(Venda venda) {
         this.vendas.add(venda);
