@@ -1,18 +1,20 @@
-package botiga;
+package botiga.botiga;
+
+import botiga.Producte.GestorProductes;
 import botiga.Producte.Producte;
-import java.util.ArrayList;
-import java.util.Scanner;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+
+import java.util.Scanner;
+
 import static org.junit.jupiter.api.Assertions.*;
+
 
 public class GestorProducteTest {
     Scanner sc = new Scanner(System.in);
-    public static ArrayList<Producte> llistaProductes = new ArrayList<>();
 
+    @Test
+    public void AfegirProducteTest(){
 
-    //CREACIÓ D'UN PRODUCTE NOU
-    public void afegirProducte(Producte producte) {
         System.out.println("Introdueix el nom del producte: ");
         String nom = sc.nextLine();
 
@@ -22,40 +24,25 @@ public class GestorProducteTest {
         System.out.println("Introdueix l'estoc del producte: ");
         sc.nextInt();
         int stock = sc.nextInt();
-        Producte p = new Producte(nom,preu,stock);
 
-        System.out.println("Producte creat correctament.");
-        llistaProductes.add(p);
-    }
-
-    public void cercarProducte(String nom) {
-        Boolean ProducteCercat = Boolean.FALSE;
-        for (Producte p : llistaProductes) {
-            if (p.getNom().equals(nom)) {
-                System.out.println(p);
-                ProducteCercat = Boolean.TRUE;
-            }
-        }
+        GestorProductes gestorProductes = new GestorProductes();
+        gestorProductes.afegirProducte(nom,preu,stock);
     }
 
-    public void eliminarProdute(Producte producte) {
-        for (Producte p : llistaProductes) {
-            if (p.getNom().equals(producte.getNom())) {
-                System.out.println("Vols eliminar aquest producte? 1. Sí - 2. No");
-                System.out.println(p);
-                int confirmacio = sc.nextInt();
-                if (confirmacio == 1) {
-                    llistaProductes.remove(p);
-                    System.out.println("S'ha eliminat el producte.");
-                } else  if (confirmacio == 2) {
-                    System.out.println("No s'ha eliminat el producte.");
-                } else {
-                    System.out.println("ERROR - No s'ha introduit un nombre vàlid");
-                }
-            }
-        }
+    @Test
+    public void CercarProducteTest(){
+
     }
-    public void aplicarDescomptes(Producte producte, double descompte) {
-        producte.setPreu(producte.getPreu()-descompte);
+
+    @Test
+    public void EliminarProducteTest(){
+
     }
+
+    @Test
+    public void AplicarProducteTest(){
+
+    }
+
+
 }
