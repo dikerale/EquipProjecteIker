@@ -33,7 +33,7 @@ public class Usuari {
     }
 
     public void setCorreu(String correu) {
-        this.correu = correu;
+        this.correuElectronic = correu;
     }
 
     public void setRol(String rol) {
@@ -41,6 +41,6 @@ public class Usuari {
     }
 
     public String toString() {
-        return "Nom: " + nom + "\nCorreu: " + correu + "\nRol: " + rol;
+        return "Nom: " + nom + "\nCorreu: " + correuElectronic + "\nRol: " + rol;
     }
 }

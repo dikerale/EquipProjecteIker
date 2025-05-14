@@ -5,7 +5,7 @@ import java.util.ArrayList;
 public class GestioUsuari {
     private ArrayList<Usuari> llistaUsuaris;
 
-    public GestorUsuaris() {
+    public void GestorUsuaris() {
         llistaUsuaris = new ArrayList<>();
     }
 
@@ -25,7 +25,7 @@ public class GestioUsuari {
 
     public boolean validarExistencia(String correu) {
         for (Usuari u : llistaUsuaris) {
-            if (u.getCorreu().equalsIgnoreCase(correu)) {
+            if (u.getCorreuElectronic().equalsIgnoreCase(correu)) {
                 return true;
             }
         }
