@@ -7,7 +7,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class ProducteTest {
 
     @Test
-    public void testConstructor() {
+    public void testConstructor() {//test del constructor
         Producte p = new Producte("Producte1", 20, 100);
         assertEquals("Producte1", p.getNom());
         assertEquals(20, p.getPreu());
@@ -15,7 +15,7 @@ public class ProducteTest {
     }
 
     @Test
-    public void testSettersAndGetters() {
+    public void testSettersAndGetters() {//test dels setters i getters
         Producte p = new Producte("Producte1", 20, 100);
         p.setNom("Producte2");
         p.setPreu(19);
@@ -27,7 +27,7 @@ public class ProducteTest {
     }
 
     @Test
-    public void testToString() {
+    public void testToString() {//test del tostring
         Producte p = new Producte("Producte1", 20, 100);
         String expected = "Nom: Producte1\nPreu: 20.0\nStock: 100";
         assertEquals(expected, p.toString());
