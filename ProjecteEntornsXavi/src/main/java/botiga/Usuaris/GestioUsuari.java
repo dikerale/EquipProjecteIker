@@ -5,10 +5,9 @@ import java.util.ArrayList;
 public class GestioUsuari {
     private ArrayList<Usuari> llistaUsuaris;
 
-    public void GestorUsuaris() {
+    public GestioUsuari() {
         llistaUsuaris = new ArrayList<>();
     }
-
     public void afegirUsuari(Usuari usuari) {
         llistaUsuaris.add(usuari);
         System.out.println("Usuari afegit correctament.");
