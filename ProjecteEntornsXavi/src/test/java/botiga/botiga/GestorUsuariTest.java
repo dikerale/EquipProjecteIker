@@ -34,10 +34,10 @@ public class GestorUsuariTest {
     @Test
     public void testValidarExistencia() {
         GestioUsuari gestor = new GestioUsuari();
-        Usuari usuari = new Usuari("Monday", "monday@botiga.com", "CLIENT");
+        Usuari usuari = new Usuari("Furbo", "furbo@botiga.com", "CLIENT");
         gestor.afegirUsuari(usuari);
 
-        assertTrue(gestor.validarExistencia("monday@botiga.com"));
+        assertTrue(gestor.validarExistencia("furbo@botiga.com"));
         assertFalse(gestor.validarExistencia("sensecorreu@botiga.com"));
     }
 }
