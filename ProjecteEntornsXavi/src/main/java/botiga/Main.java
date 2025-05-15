@@ -5,6 +5,7 @@ import botiga.Producte.Producte;
 import botiga.Usuaris.GestioUsuari;
 import botiga.Usuaris.Usuari;
 import botiga.Venda.GestorVenda;
+import botiga.Venda.LiniaVenda;
 import botiga.Venda.Venda;
 import java.time.LocalDate;
 import java.util.InputMismatchException;
@@ -135,7 +136,7 @@ public class Main {
                 } else if (menu1 == 3) {
                     while (true) {
                         try {
-                            System.out.println("| Venda |\n 1-Buscar venda per data\n2-Afegir venda\n3-Sortir al menu principal");
+                            System.out.println("| Venda |\n1-Buscar venda per data\n2-Afegir venda\n3-Sortir al menu principal");
                             int menu2 = sc.nextInt();
                             sc.nextLine();
                             if (menu2 == 1) {
@@ -149,13 +150,49 @@ public class Main {
                                 System.out.println("---------");
                                 System.out.println("Introdueix el nom de l'usuari: ");
                                 String nom = sc.nextLine();
+                                Usuari usuari = gestioUsuari.obtenirUsuariPerNom(nom);
+                                if (usuari == null) {
+                                    System.out.println("L'usuari no existeix.");
+                                    System.out.println("---------");
+                                } else {
+                                    Venda venda = new Venda(gestioUsuari.obtenirUsuariPerNom(nom));
+                                    gestorVenda.afegirVenda(venda);
 
-                                Venda venda = new Venda(gestioUsuari.obtenirUsuariPerNom(nom));
-                                gestorVenda.afegirVenda(venda);
+                                    while (true) {
+                                        try {
 
-                                System.out.println(venda);
+                                            System.out.println("Introdueix el nom del producte a afegir:");
+                                            String nomProducte = sc.nextLine();
+                                            Producte producte = gestorProductes.cercarProducteVenda(nomProducte);
+                                            if (producte == null) {
+                                                continue; // Torna a demanar un altre cop el producte
+                                            }
+                                            System.out.println("Introdueix la quantitat: ");
+                                            int quantitat = sc.nextInt();
 
-                                System.out.println("---------");
+                                            venda.afegirLinia(producte, quantitat);
+
+                                            System.out.println("Vols afegir més productes? 1-Sí 2-No ");
+                                            int afegirMesProductes = sc.nextInt();
+                                            sc.nextLine();
+                                            if (afegirMesProductes == 1) {
+                                                System.out.println("---------");
+                                            } else if (afegirMesProductes == 2) {
+                                                System.out.println("---------");
+                                                break;
+                                            } else {
+                                                System.out.println("No has introduit un nombre correcte");
+                                            }
+                                        } catch (InputMismatchException IME) {
+                                            System.out.println("Caràcter incorrecte");
+                                            sc.nextLine();
+                                        } catch (Exception e) {
+                                            System.out.println("S'ha produït un error inesperat: " + e.getMessage());
+                                        }
+                                    }
+                                    System.out.println(venda);
+                                    System.out.println("---------");
+                                }
                             }else  if (menu2 == 3) {
                                 System.out.println("---------");
                                 break;

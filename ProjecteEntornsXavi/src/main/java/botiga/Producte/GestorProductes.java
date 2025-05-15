@@ -80,6 +80,35 @@ public class GestorProductes {
         }
     }
 
+    //cercar productes per a venda
+    public Producte cercarProducteVenda(String nom) {
+        Boolean ProducteCercat = Boolean.FALSE;
+        if (llistaProductes.isEmpty()) {
+            System.out.println("La llista està buida.");
+        } else {
+            for (Producte p : llistaProductes) {
+                if (p.getNom().toLowerCase().equals(nom)) {
+                    ProducteCercat = Boolean.TRUE;
+                    System.out.println("Vols afegir aquest producte? 1-Sí 2-No");
+                    System.out.println(p);
+                    int producteCorrecte = sc.nextInt();
+                    sc.nextLine();
+                    if (producteCorrecte == 1) {
+                        return p;
+                    } else if (producteCorrecte == 2) {
+                        System.out.println("Producte no afegit");
+                    }else{
+                        System.out.println("No has introduït un nombre vàlid");
+                    }
+                }
+            }
+            if (ProducteCercat == Boolean.FALSE) {
+                System.out.println("No s'ha trobat el producte buscat");
+            }
+        }
+        return null;
+    }
+
     //eliminar un producte
     public void eliminarProdute() {
         try {
