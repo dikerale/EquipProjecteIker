@@ -23,7 +23,13 @@ public class Main {
                 gestorProductes.afegirProducte("pilota blanca", 10, 50);
                 gestorProductes.afegirProducte("pilota vermella", 12, 25);
                 gestorProductes.afegirProducte("pilota colors", 16, 46);
-                gestorProductes.afegirProducte("samarreta Mesi", 60, 105);
+                gestorProductes.afegirProducte("samarreta Messi", 60, 105);
+
+                Usuari u1 = new Usuari("Lluc", "lluc@example.com", "CLIENT");
+                Usuari u2 = new Usuari("Anna", "anna@example.com", "ADMINISTRADOR");
+                gestioUsuari.afegirUsuari(u1);
+                gestioUsuari.afegirUsuari(u2);
+
 
                 System.out.println("| Menu |\n1-Productes\n2-Usuaris\n3-Venda\n4-Sortir del programa");
                 int menu1 = sc.nextInt();
@@ -71,25 +77,49 @@ public class Main {
                         }
                     }
                 } else if (menu1 == 2) {
-                    System.out.println("| Usuaris |\n1-Afegir un usuari\n2-Cercar un usuari\n3-Validar existencia\n4-Sortir al menu principal");
-                    int menu2 = sc.nextInt();
-                    sc.nextLine();
-                    if (menu2 == 1) {
-                        System.out.println("---------");
-                        System.out.println("Introdueix el nom de l'Usuari: ");
-                        String nom = sc.nextLine();
-                        System.out.println("Introdueix el correu de l'Usuari: ");
-                        String correu = sc.nextLine();
-                        System.out.println("Introdueix el rol de l'Usuari: ");
-                        String rol = sc.nextLine();
+                    while (true) {
+                        System.out.println("| Usuaris |\n1-Mostrar tots els usuaris\n2-Afegir un usuari\n3-Cercar un usuari\n4-Validar existencia\n5-Sortir al menu principal");
+                        int menu2 = sc.nextInt();
+                        sc.nextLine();
+                        if (menu2 == 1) {
+                            System.out.println("---------");
+                            gestioUsuari.mostrarTotsElsUsuaris();
+                            System.out.println("---------");
 
-                        Usuari usuari = new Usuari(nom, correu, rol);
-                        gestioUsuari.afegirUsuari(usuari);
-                        System.out.println("---------");
+                        }else if (menu2 == 2) {
+                            System.out.println("---------");
+                            System.out.println("Introdueix el nom de l'Usuari: ");
+                            String nom = sc.nextLine();
+                            System.out.println("Introdueix el correu de l'Usuari: ");
+                            String correu = sc.nextLine();
+                            System.out.println("Introdueix el rol de l'Usuari: ");
+                            String rol = sc.nextLine();
 
+                            Usuari usuari = new Usuari(nom, correu, rol);
+                            System.out.println(gestioUsuari.afegirUsuari(usuari));
+                            System.out.println("---------");
+
+                        }else if (menu2 == 3) {
+                            System.out.println("---------");
+                            System.out.println("Introdueix el nom de l'usuari a cercar: ");
+                            String nom = sc.nextLine();
+                            System.out.println(gestioUsuari.obtenirUsuariPerNom(nom));
+                            System.out.println("---------");
+
+                        }else if (menu2 == 4) {
+                            System.out.println("---------");
+                            System.out.println("Introdueix el correu de l'usuari a validar: ");
+                            String correu = sc.nextLine();
+                            System.out.println(gestioUsuari.validarExistencia(correu));
+                            System.out.println("---------");
+
+                        }else if (menu2 == 5) {
+                            System.out.println("---------");
+                            break;
+                        }
                     }
                 } else if (menu1 == 3) {
-                    System.out.println("");
+                    System.out.println("| Venda |");
                 } else if (menu1 == 4) {
                     System.out.println("Sortint del programa...");
                     break;

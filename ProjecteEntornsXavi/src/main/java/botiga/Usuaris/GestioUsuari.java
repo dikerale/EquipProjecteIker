@@ -8,9 +8,9 @@ public class GestioUsuari {
     public GestioUsuari() {
         llistaUsuaris = new ArrayList<>();
     }
-    public void afegirUsuari(Usuari usuari) {
+    public String afegirUsuari(Usuari usuari) {
         llistaUsuaris.add(usuari);
-        System.out.println("Usuari afegit correctament.");
+        return "Usuari afegit correctament.";
     }
 
     public Usuari obtenirUsuariPerNom(String nom) {
